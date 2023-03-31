@@ -1,30 +1,63 @@
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
+<script>
+  import axios from 'axios';
+  import {store} from './store.js'
+
+  import CardBox from './components/CardBox.vue';
+  import MyHeader from './components/MyHeader.vue';
+
+
+  export default {
+    data(){
+      return {
+        store
+      }
+    },
+    components: {
+      MyHeader,
+      CardBox
+    },
+    methods: {
+      findCard(){
+
+        let urlApi = 'https://api.themoviedb.org/3/search/movie?api_key=7500f58cb271674f8e4901bbd9d46bc3&language=it-IT&query=';
+
+        if(store.search.length > 0){
+          urlApi += `${store.search}`
+          }else{
+            urlApi += `avengers`
+          }
+
+          
+          axios.get(urlApi)
+          .then(response => {
+            this.store.filmList = response.data.results;
+            console.log(this.store.filmList)
+          })
+
+      }
+    
+    },
+    created(){
+      this.findCard()
+    }
+  }
 </script>
 
+
 <template>
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
-  </div>
-  <HelloWorld msg="Vite + Vue" />
+  <MyHeader @startSearch="findCard"/>
+
+  <main>
+    <CardBox />
+  </main>
 </template>
 
-<style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
+
+<style lang="scss" scoped>
+@use '../src/styles/general.scss' as *;
+
 </style>
+
+
+
+<!--autenticazione API - 7500f58cb271674f8e4901bbd9d46bc3-->
