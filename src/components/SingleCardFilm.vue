@@ -1,6 +1,6 @@
 <template>
     <div>
-       <div>{{ 'imageF' }}</div>
+       <img :src="`https://image.tmdb.org/t/p/w342${imageF}`">
        <div>{{ languageF }}</div>
        <div>{{ titleF }}</div>
        <div>{{ titleItaF }}</div>
