@@ -1,7 +1,7 @@
 <template>
     <header>
         <input type="text" placeholder="Cerca un film o serie tv" v-model="store.search">
-        <button @click="$emit(startSearch)"> Cerca </button>
+        <button @click="$emit('startSearch')"> Cerca </button>
     </header>
 </template>
 

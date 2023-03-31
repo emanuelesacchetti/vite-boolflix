@@ -20,9 +20,12 @@
       findCard(){
 
         let urlApi = 'https://api.themoviedb.org/3/search/movie?api_key=7500f58cb271674f8e4901bbd9d46bc3&language=it-IT&query=';
+        //let urlSerieApi = 'https://api.themoviedb.org/3/search/tv?api_key=7500f58cb271674f8e4901bbd9d46bc3&language=it-IT&query=';
 
         if(store.search.length > 0){
+          console.log(store.search)
           urlApi += `${store.search}`
+          
           }else{
             urlApi += `avengers`
           }

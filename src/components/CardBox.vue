@@ -1,10 +1,21 @@
 <template>
-    <h1>ciao</h1>
+    <div v-for="(film, index) in store.filmList" key="index">
+        <SingleCard 
+            :image='film.backdrop_path'
+            :language='film.original_language'
+            :title='film.original_title'
+            :titleIta='film.title'
+            :vote="film.vote_average"
+        />
+    </div>
+    
+    <h1>elenco card</h1>
 </template>
 
 
 <script>
     import {store} from '../store.js';
+    import SingleCard from './SingleCard.vue';
 
     export default {
         name: 'CardBox',
@@ -12,6 +23,9 @@
             return{
                 store
             }
+        },
+        components: {
+            SingleCard
         }
     }
 </script>
