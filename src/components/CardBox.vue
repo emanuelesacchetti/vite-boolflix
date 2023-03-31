@@ -1,11 +1,22 @@
 <template>
+    <h2>film</h2>
     <div v-for="(film, index) in store.filmList" key="index">
-        <SingleCard 
-            :image='film.backdrop_path'
-            :language='film.original_language'
-            :title='film.original_title'
-            :titleIta='film.title'
-            :vote="film.vote_average"
+        <SingleCardFilm 
+            :imageF='film.poster_path'
+            :languageF='film.original_language'
+            :titleF='film.original_title'
+            :titleItaF='film.title'
+            :voteF="film.vote_average"
+        />
+    </div>
+    <h2>serie tv</h2>
+    <div v-for="(serie, index) in store.serieList" key="index">
+        <SingleCardSerie 
+            :imageS='serie.poster_path'
+            :languageS='serie.original_language'
+            :titleS='serie.original_name'
+            :titleItaS='serie.name'
+            :voteS="serie.vote_average"
         />
     </div>
     
@@ -15,7 +26,8 @@
 
 <script>
     import {store} from '../store.js';
-    import SingleCard from './SingleCard.vue';
+    import SingleCardFilm from './SingleCardFilm.vue';
+    import SingleCardSerie from './SingleCardSerie.vue';
 
     export default {
         name: 'CardBox',
@@ -25,7 +37,8 @@
             }
         },
         components: {
-            SingleCard
+            SingleCardFilm,
+            SingleCardSerie
         }
     }
 </script>
