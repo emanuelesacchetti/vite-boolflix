@@ -63,7 +63,14 @@
 
 
 <style lang="scss" scoped>
-@use '../src/styles/general.scss' as *;
+@use './styles/general.scss';
+@use './styles/mixins';
+@use './styles/variables' as *;
+
+
+main{
+  background-color: black;
+}
 
 </style>
 
