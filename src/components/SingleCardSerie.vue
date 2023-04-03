@@ -28,6 +28,7 @@
 
 <script>
     import {store} from '../store.js'
+
     export default {
         name: 'SingleCardSerie',
         data(){
@@ -35,7 +36,6 @@
                 store,
                 stellePiene: this.getStarFull(this.serie.vote_average),
                 stelleVuote: this.getStarEmpty(this.serie.vote_average)
-
             }
         },
         props: {
