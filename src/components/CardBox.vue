@@ -1,26 +1,21 @@
 <template>
-    <h2>film</h2>
-    <div v-for="(film, index) in store.filmList" key="index">
-        <SingleCardFilm 
-            :imageF='film.poster_path'
-            :languageF='film.original_language'
-            :titleF='film.original_title'
-            :titleItaF='film.title'
-            :voteF="film.vote_average"
-        />
-    </div>
-    <h2>serie tv</h2>
-    <div v-for="(serie, index) in store.serieList" key="index">
-        <SingleCardSerie 
-            :imageS='serie.poster_path'
-            :languageS='serie.original_language'
-            :titleS='serie.original_name'
-            :titleItaS='serie.name'
-            :voteS="serie.vote_average"
-        />
-    </div>
-    
-    <h1>elenco card</h1>
+    <section>
+        <h2>film</h2>
+        <ul v-for="(film, index) in store.filmList" key="index">
+            <SingleCardFilm 
+                :film = film
+            />
+        </ul>
+    </section>
+
+    <section>
+        <h2>serie tv</h2>
+        <ul v-for="(serie, index) in store.serieList" key="index">
+            <SingleCardSerie 
+                :serie = serie
+            />
+        </ul>
+    </section>
 </template>
 
 

@@ -1,27 +1,19 @@
 <template>
-    <div>
-       <img :src="`https://image.tmdb.org/t/p/w342${imageF}`">
-       <div>{{ languageF }}</div>
-       <div>{{ titleF }}</div>
-       <div>{{ titleItaF }}</div>
-       <div>{{ voteF }}</div>
-    </div>
+    <li>
+       <img :src="`https://image.tmdb.org/t/p/w342${film.poster_path}`">
+       <div>{{ film.original_language }}</div>
+       <div>{{ film.original_title }}</div>
+       <div>{{ film.title }}</div>
+       <div>{{ film.vote_average }}</div>
+    </li>
 </template>
-
-<!--esempio path image
-https://image.tmdb.org/t/p/w342/wwemzKWzjKYJFfCeiB57q3r4Bcm.png
--->
 
 <script>
 
     export default {
         name: 'SingleCardFilm',
         props: {
-            imageF: String,
-            languageF: String,
-            titleF: String,
-            titleItaF: String,
-            voteF: Number,
+            film: Object
         }
     }
 </script>
