@@ -4,8 +4,8 @@
             <h2>film</h2>
             <ul>
                 <li v-for="(film, index) in store.filmList" key="index">
-                    <SingleCardFilm 
-                        :film = film
+                    <SingleCard 
+                        :show = film
                     />
                 </li>
             </ul>
@@ -15,8 +15,8 @@
             <h2>serie tv</h2>
             <ul>
                 <li v-for="(serie, index) in store.serieList" key="index">
-                    <SingleCardSerie 
-                        :serie = serie
+                    <SingleCard 
+                        :show = serie
                     />
                 </li>
             </ul>
@@ -28,8 +28,8 @@
 
 <script>
     import {store} from '../store.js';
-    import SingleCardFilm from './SingleCardFilm.vue';
-    import SingleCardSerie from './SingleCardSerie.vue';
+    import SingleCard from './SingleCard.vue';
+    
 
     export default {
         name: 'CardBox',
@@ -39,8 +39,7 @@
             }
         },
         components: {
-            SingleCardFilm,
-            SingleCardSerie
+            SingleCard
         }
     }
 </script>
@@ -66,7 +65,7 @@ ul{
     li{
         color: white;
         width: 200px;
-        background-color: red;
+        background-color: rgb(12, 12, 12);
         border: 0.5px solid white;
         height: 250px;
         overflow: scroll;
