@@ -5,6 +5,9 @@ export const store = reactive(
         filmList: [],
         serieList: [],
         search: '',
-        flagsText: ['en', 'it']
+        flagsText: ['cn','de','en','fr','it','ja','ru','zh'],
+        cast:[]
+        
+
     }
 )

@@ -26,13 +26,8 @@
           console.log(store.search)
           urlFilmApi += `${store.search}`
           urlSerieApi += `${store.search}`
-          
-          }else{
-            urlFilmApi += `avengers`;
-            urlSerieApi += 'avengers'
           }
-
-          
+        
           axios.get(urlFilmApi)
           .then(response => {
             this.store.filmList = response.data.results;

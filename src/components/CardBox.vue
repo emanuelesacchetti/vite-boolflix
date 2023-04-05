@@ -1,7 +1,8 @@
 <template>
+    
     <div class="container">
         <section>
-            <h2>film</h2>
+            <h2 v-if="this.store.search != ''">MOVIE</h2>
             <ul>
                 <li v-for="(film, index) in store.filmList" key="index">
                     <SingleCard 
@@ -12,7 +13,7 @@
         </section>
 
         <section>
-            <h2>serie tv</h2>
+            <h2 v-if="this.store.search != ''">TV SHOW</h2>
             <ul>
                 <li v-for="(serie, index) in store.serieList" key="index">
                     <SingleCard 
@@ -52,19 +53,20 @@
 
 .container{
   background-color: black;
-  max-width: 1200px;
+  width: 1200px;
   margin: auto;
+  min-height: 100vh;
 }
+
 ul{
     @include mixins.flexbox(flex-start,start);
     flex-wrap: wrap;
     list-style: none;
     margin: 0 auto;
-    
-
-    li{
+}
+li{
         color: white;
-        width: 200px;
+        width: calc(100% / 6);
         background-color: rgb(12, 12, 12);
         border: 0.5px solid white;
         height: 250px;
@@ -73,12 +75,29 @@ ul{
         &::-webkit-scrollbar {
             display: none;
         }
-    
     }
-}
+
 h2{
     color: white;
+    padding: 20px 0 5px;
 }
 
-
+@media all and (max-width: 1250px){
+    .container{
+        width: 980px;
+        margin: auto
+    } 
+    li {
+        width: calc(100% / 5)
+    }
+}
+@media all and (max-width: 1040px){
+    .container{
+        width: 800px;
+        margin: auto
+    } 
+    li {
+        width: calc(100% / 4)
+    }
+}
 </style>

@@ -1,6 +1,6 @@
 <template>
     <header>
-        <h1>BOOLFLIX</h1>
+        <img :src="getImageUrl('logo')" alt="logo Boolflix">
         <div>
             <input type="text" placeholder="Cerca un film o serie tv" v-model="store.search">
             <button @click="$emit('startSearch')"> Cerca </button>
@@ -18,6 +18,14 @@
             return{
                 store
             }
+        },
+        methods: {
+            getImageUrl(path){
+                console.log('sto usando la funzione per le img')
+                return new URL(`../assets/flags/${path}.png`,
+                 import.meta.url).href;
+                
+            }
         }
     }
 </script>
@@ -34,8 +42,8 @@ header {
     background-color: black;
     padding: 10px;
 
-    h1{
-        color: $color_primary;
+    img{
+        height: 40px;
     }
 }
 </style>
