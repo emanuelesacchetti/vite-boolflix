@@ -2,7 +2,7 @@
     
     <div class="container">
         <section>
-            <h2 v-if="this.store.search != ''">MOVIE</h2>
+            <h2 v-if="this.store.filmList != ''">MOVIE</h2>
             <ul>
                 <li v-for="(film, index) in store.filmList" key="index">
                     <SingleCard 
@@ -13,7 +13,7 @@
         </section>
 
         <section>
-            <h2 v-if="this.store.search != ''">TV SHOW</h2>
+            <h2 v-if="this.store.serieList != ''">TV SHOW</h2>
             <ul>
                 <li v-for="(serie, index) in store.serieList" key="index">
                     <SingleCard 

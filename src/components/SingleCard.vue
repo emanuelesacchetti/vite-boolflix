@@ -29,11 +29,12 @@
                 </span>
             </div>
             <!--CAST-->
-            <div v-for="i in 5" class="cast">
+            <div v-if="store.cast.length > 0" v-for="i in 5" class="cast">
                 <span>{{store.cast[i].name}}</span>
                  as 
                  <span>{{ store.cast[i].character }}</span>
             </div>
+            <p v-else></p>
             
             <!--TRAMA-->
             <p v-if="show.overview">
@@ -122,12 +123,13 @@ import {store} from '../store.js'
 
 .cover{
     height: 100%;
-
+    
     img{
     width: 100%;
     object-fit: cover;
     object-position: center;
     }
+    
 }
 .noCover {
     text-align: center;
@@ -151,4 +153,5 @@ import {store} from '../store.js'
 .cast{
     font-size: 10px;
 }
+
 </style>
