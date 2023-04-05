@@ -16,9 +16,11 @@
             <!--TITOLO ORIGINALE-->
             <h4>Titolo originale: {{ show.original_title?show.original_title:show.original_name }}</h4>
             <!--TITOLO ITALIANO-->
-            <h4 v-if="show.title!=show.original_title||show.name!=show.original_name">
+            <div v-if="show.title||show.name">
+                <h4 v-if="show.title!=show.original_title||show.name!=show.original_name">
                 Titolo: {{ show.title?show.title:show.name }}
-            </h4>
+                </h4>
+            </div>
             <!--VOTO IN STELLE-->
             <div v-if="show.vote_average">
                 <span v-for="i in stellePiene">
@@ -29,7 +31,7 @@
                 </span>
             </div>
             <!--CAST-->
-            <div v-if="store.cast.length > 0" v-for="i in 5" class="cast">
+            <div v-if="store.cast.length >= 5" v-for="i in 5" class="cast">
                 <span>{{store.cast[i].name}}</span>
                  as 
                  <span>{{ store.cast[i].character }}</span>
@@ -104,6 +106,7 @@ import {store} from '../store.js'
                 
             },
             findCast(){
+                this.store.cast= []
                 console.log(this.show.id)
                 axios.get(`https://api.themoviedb.org/3/movie/${this.show.id}/credits?api_key=7500f58cb271674f8e4901bbd9d46bc3`)
                 .then(response => {
