@@ -28,7 +28,7 @@
                     <i class="fa-regular fa-star"></i>
                 </span>
             </div>
-            
+            <!--CAST-->
             <div v-for="i in 5" class="cast">
                 <span>{{store.cast[i].name}}</span>
                  as 

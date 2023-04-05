@@ -2,7 +2,10 @@
     <header>
         <img :src="getImageUrl('logo')" alt="logo Boolflix">
         <div>
-            <input type="text" placeholder="Cerca un film o serie tv" v-model="store.search">
+            <input type="text" placeholder="Cerca un film o serie tv" 
+                v-model="store.search"
+                @keyup.enter="$emit('startSearch')"
+            />
             <button @click="$emit('startSearch')"> Cerca </button>
         </div>
     </header>
